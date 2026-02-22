@@ -37,7 +37,7 @@ document.write(number3+ " % " + number4 + " = "+ (number3%number4) + "<br>") */
 
 // Phase 4
 
-let name = "Mohammad Julfikar Rahman"
+/* let name = "Mohammad Julfikar Rahman"
 
 salary = parseFloat(prompt("Enter your salary: "))
 house_rent = parseFloat(prompt("Enter your house rent: "));
@@ -71,12 +71,49 @@ else{
         document.write("Need Improvement")
     else
         document.write("Critical")
+} */
+
+// Phase 6
+
+let name = prompt("Enter your name: ");
+let total_expense = 0;
+
+let income = Number(prompt("Enter your income: "));
+if (isNaN(income) || income <= 0) {
+  document.write("Income is not correct! Please check again.");
+} else {
+  let expense_number = Number(prompt("How many expenses you have: "));
+
+  if (isNaN(expense_number) || expense_number <= 0) {
+    document.write("Number of expense is not correct! Please check again.");
+  } else {
+    for (let i = 0; i < expense_number; i++) {
+      new_expense = Number(prompt(`Enter Expense ${i + 1}`));
+      if (isNaN(new_expense) || new_expense < 0) {
+        new_expense = 0;
+      }
+      total_expense = total_expense + new_expense;
+    }
+
+    let tax_deduction = (income * 10) / 100;
+    remaining_balance = income - tax_deduction - total_expense;
+    saving = (20 * remaining_balance) / 100;
+
+    document.write("User Name: " + name + "<br>");
+    document.write("Salary: " + income + "<br>");
+    document.write("Total Cost: " + total_expense + "<br>");
+    document.write("Tax: " + tax_deduction + "<br>");
+    document.write("Remaining Balance: " + remaining_balance + "<br>");
+    document.write("Savings: " + saving + "<br>");
+
+    if (total_expense > income) document.write("Over Expending!");
+    else {
+      if (saving >= 1000) document.write("Excellent");
+      else if (saving >= 500 && saving <= 999) document.write("Good");
+      else if (saving >= 1000) document.write("Excellent");
+      else if (saving >= 100 && saving <= 499)
+        document.write("Need Improvement");
+      else document.write("Critical");
+    }
+  }
 }
-
-
-
-
-
-
-
-
