@@ -8,7 +8,6 @@ result = (num1 > num2 && num1> num3) ? num1: (num2>num3 && num2>num1) ? num2: nu
 
 document.write(result) */
 
-
 // Task 5
 
 /* letter = prompt("Enter a character from your keyboard: ")
@@ -44,7 +43,7 @@ console.log(sum) */
 
 // FizzBuzz Challenge
 
-let n = 1;
+/* let n = 1;
 
 while(n<=100){
    
@@ -64,4 +63,11 @@ while(n<=100){
     
     n+=1
 }
+ */
 
+// Task 7
+
+(function sum(num1, num2) {
+  let sum = num1 + num2;
+  console.log(sum);
+})(5, 10);
