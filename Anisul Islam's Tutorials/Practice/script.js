@@ -1,3 +1,17 @@
+// Task 1:
+
+/* number1= prompt("Enter first number: ")
+number2 = prompt("Enter second number: ")
+
+number3 = parseInt(number1,10)
+number4 = parseInt(number2,10)
+
+document.write(number3+ " + " + number4 + " = "+ (number3+number4) + "<br>")
+document.write(number3+ " - " + number4 + " = "+ (number3-number4) + "<br>")
+document.write(number3+ " * " + number4 + " = "+ (number3*number4) + "<br>")
+document.write(number3+ " / " + number4 + " = "+ (number3/number4) + "<br>")
+document.write(number3+ " % " + number4 + " = "+ (number3%number4) + "<br>") */
+
 // ### Task 4 ###
 
 /* let num1 = Number(prompt("Enter first number: "))

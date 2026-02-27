@@ -21,20 +21,6 @@ document.write("User: "+ name1.toUpperCase())
 document.write("<br>Total Income: " + "$"+income1)
 document.write("<br>Total Expenses: " + "$"+expences1) */
 
-// Task 1:
-
-/* number1= prompt("Enter first number: ")
-number2 = prompt("Enter second number: ")
-
-number3 = parseInt(number1,10)
-number4 = parseInt(number2,10)
-
-document.write(number3+ " + " + number4 + " = "+ (number3+number4) + "<br>")
-document.write(number3+ " - " + number4 + " = "+ (number3-number4) + "<br>")
-document.write(number3+ " * " + number4 + " = "+ (number3*number4) + "<br>")
-document.write(number3+ " / " + number4 + " = "+ (number3/number4) + "<br>")
-document.write(number3+ " % " + number4 + " = "+ (number3%number4) + "<br>") */
-
 // Phase 4
 
 /* let name = "Mohammad Julfikar Rahman"
@@ -119,9 +105,9 @@ if (isNaN(income) || income <= 0) {
 }
  */
 
-// Phase 8
+// Phase 7
 
-let name = prompt("Enter your name: ");
+/* let name = prompt("Enter your name: ");
 let total_expense = 0;
 let expense_Arr = [];
 
@@ -167,4 +153,231 @@ if (isNaN(income) || income <= 0) {
       else document.write("Critical");
     }
   }
+} */
+
+// Phase 8
+
+/* function get_user_input(prompt_Message) {
+  return prompt(prompt_Message);
 }
+
+function validate_txt(input) {
+  if (input === null || input.trim() === "" || !isNaN(input)) {
+    console.log(`"${input}" is not a valid name! Please use letters.`);
+    return false;
+  }
+  return true;
+}
+
+function validate_num(input) {
+  if (isNaN(input) || input <= 0) {
+    console.log(`${input} is not correct! Please check again.`);
+    return false;
+  }
+
+  return true;
+}
+
+function get_expenses(expense_number) {
+  let expences = [];
+  for (let i = 0; i < expense_number; i++) {
+    let new_expense = get_user_input(`Enter Your Expense ${i + 1}: `);
+    if (validate_num(new_expense)) {
+      expences.push(Number(new_expense));
+    } else {
+      i--;
+    }
+  }
+
+  return expences;
+}
+
+function total_expenses(expences_arr) {
+  let total = 0;
+  for (let i = 0; i < expences_arr.length; i++) {
+    total = total + expences_arr[i];
+  }
+  return total;
+}
+
+function calculation(income, total_expen) {
+  income = Number(income);
+  let tax_deduction = (income * 10) / 100;
+  let remaining_balance = income - tax_deduction - total_expen;
+  let saving = (20 * remaining_balance) / 100;
+  let cal = [tax_deduction, remaining_balance, saving];
+
+  return cal;
+}
+
+function display_information(name, income, total_ex, calculate) {
+  let saving = calculate[2];
+  console.log("User Name: " + name + "<br>");
+  console.log("Salary: " + income + "<br>");
+  console.log("Total Cost: " + total_ex + "<br>");
+  console.log("Tax: " + calculate[0] + "<br>");
+  console.log("Remaining Balance: " + calculate[1] + "<br>");
+  console.log("Savings: " + calculate[2] + "<br>");
+
+  if (total_ex > income) console.log("Over Expending!");
+  else {
+    if (saving >= 1000) console.log("Excellent");
+    else if (saving >= 500 && saving <= 999) console.log("Good");
+    else if (saving >= 100 && saving <= 499) console.log("Need Improvement");
+    else console.log("Critical");
+  }
+}
+
+function Execute_Expense_Tracker_App() {
+  let name = get_user_input("Enter your name");
+
+  if (validate_txt(name)) {
+    let income = get_user_input("Enter your income");
+
+    if (validate_num(income)) {
+      let expense_num = get_user_input("Enter number of expense");
+
+      if (validate_num(expense_num)) {
+        let expenses_amount = get_expenses(Number(expense_num));
+        let total_expense_calculation = total_expenses(expenses_amount);
+        let calculate = calculation(income, total_expense_calculation);
+
+        display_information(name, income, total_expense_calculation, calculate);
+      }
+    }
+  }
+}
+
+Execute_Expense_Tracker_App();
+ */
+
+// Phase 9
+
+function get_user_input(prompt_Message) {
+  return prompt(prompt_Message);
+}
+
+function validate_txt(input) {
+  if (input === null || input.trim() === "" || !isNaN(input)) {
+    console.log(`"${input}" is not a valid name! Please use letters.`);
+    return false;
+  }
+  return true;
+}
+
+function validate_num(input) {
+  if (isNaN(input) || input <= 0) {
+    console.log(`${input} is not correct! Please check again.`);
+    return false;
+  }
+
+  return true;
+}
+
+function get_expenses(expense_number) {
+  let expences = [];
+  for (let i = 0; i < expense_number; i++) {
+    let new_expense = get_user_input(`Enter Your Expense ${i + 1}: `);
+    if (validate_num(new_expense)) {
+      expences.push(Number(new_expense));
+    } else {
+      i--;
+    }
+  }
+
+  return expences;
+}
+
+function total_expenses(expences_arr) {
+  let total = 0;
+  for (let i = 0; i < expences_arr.length; i++) {
+    total = total + expences_arr[i];
+  }
+  return total;
+}
+function calculate_tax(income) {
+  return income * 0.1;
+}
+function calculate_reamaing_balance(income, total_expense, tax) {
+  return income - (total_expense + tax);
+}
+
+function calculate_savings(remaining) {
+  savings = (20 * remaining) / 100;
+  return savings;
+}
+
+function financial_status(income, expense, saving) {
+  if (expense > income) {
+    return (User_Budget.fiancial_status =
+      "Over Expending. Please less your expense");
+  }
+
+  switch (saving) {
+    case saving >= 1000:
+      return "Excellant Savings";
+    case saving >= 500 && saving <= 999:
+      return "Good Savings";
+    case saving >= 100 && saving <= 499:
+      return "Need Improvement";
+    default:
+      return "Critical";
+  }
+}
+
+function display_information(user_data) {
+  console.log(`User Name:  ${user_data.name}`);
+  console.log(`Income:  ${user_data.income} `);
+  console.log(`Total Expense:   ${user_data.total_expense} `);
+  console.log(`Tax:   ${user_data.tax} `);
+  console.log(`Remaining Balance:   ${user_data.remaining_balance}`);
+  console.log(`Savings:   ${user_data.savings} `);
+  console.log(`Fianacial Status:   ${user_data.fiancial_status}`);
+}
+
+function Execute_Expense_Tracker_App() {
+  let User_Budget = {
+    name: "",
+    income: 0,
+    expense_count: 0,
+    total_expense: 0,
+    expense_list: [],
+    tax: 0,
+    remaining_balance: 0,
+    savings: 0,
+    fiancial_status: "",
+  };
+
+  User_Budget.name = get_user_input("Enter your name");
+
+  if (validate_txt(User_Budget.name)) {
+    User_Budget.income = get_user_input("Enter your income");
+
+    if (validate_num(User_Budget.income)) {
+      User_Budget.expense_count = Number(
+        get_user_input("Enter number of expense"),
+      );
+
+      if (validate_num(User_Budget.expense_count)) {
+        User_Budget.expense_list = get_expenses(User_Budget.expense_count);
+        User_Budget.total_expense = total_expenses(User_Budget.expense_list);
+        User_Budget.tax = calculate_tax(User_Budget.income);
+        User_Budget.remaining_balance = calculate_reamaing_balance(
+          User_Budget.income,
+          User_Budget.total_expense,
+          User_Budget.tax,
+        );
+        User_Budget.savings = calculate_savings(User_Budget.remaining_balance);
+        User_Budget.fiancial_status = financial_status(
+          User_Budget.income,
+          User_Budget.total_expense,
+          User_Budget.savings,
+        );
+
+        display_information(User_Budget);
+      }
+    }
+  }
+}
+
+Execute_Expense_Tracker_App();
